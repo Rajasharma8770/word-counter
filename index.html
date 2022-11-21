@@ -1,68 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Word Counter</title>
-
     <style>
-        body{
-            padding:0px 100px;
+      body {
+        padding: 0px 100px;
+      }
+
+      h1 {
+        text-align: center;
+        background-color: #006780;
+        color: white;
+        padding: 10px;
+        margin: 0px;
+      }
+
+      #text-box {
+        width: 99.2%;
+        border-color: #006780;
+        font-size: 15px;
+      }
+
+      P {
+        text-align: center;
+        background-color: #006780;
+        font-size: 25px;
+        font-weight: bold;
+        color: white;
+        padding: 11px;
+        margin: 0px;
+      }
+
+      /* responsive */
+      @media all and (max-width:820px) {
+        body {
+          padding: 0px 10px;
         }
-        h1{
-            text-align: center;
-            background-color: #006780;
-            color: white;
-            padding: 10px;
-            margin: 0px;
+      }
+
+      @media all and (max-width:412px) {
+        body {
+          padding: 0px 5px;
         }
 
-        #text-box{
-            width: 99.2%;
-            border-color: #006780;
-            font-size: 15px;
+        h1 {
+          font-size: 25px;
         }
-        P{
-            text-align: center;
-            background-color: #006780;
-            font-size: 25px;
-            font-weight: bold;
-            color: white;
-            padding: 11px;
-            margin: 0px;
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Word and Character Counter</h1>
     <textarea name="" id="text-box" cols="30" rows="10"></textarea>
-
     <p>
-        <span id="word">0</span> Words and 
-        <span id="char">0</span> Character
+      <span id="word">0</span> Words and <span id="char">0</span> Character
     </p>
-
-
-<script>
-    
-let textbox=document.getElementById("text-box");
-
-textbox.addEventListener('input', function(){
-var text = this.value;
-let char = text.length;
-
-document.getElementById("char").innerHTML=char;
-
-text=text.trim();
-let words = text.split(" ");
-let cleanlist = words.filter(function(elm){
-return elm !="";
-});
-document.getElementById("word").innerHTML=cleanlist .length;
-
-});
-
+    <script>
+      let textbox = document.getElementById("text-box");
+      textbox.addEventListener('input', function() {
+        var text = this.value;
+        let char = text.length;
+        document.getElementById("char").innerHTML = char;
+        text = text.trim();
+        let words = text.split(" ");
+        let cleanlist = words.filter(function(elm) {
+          return elm != "";
+        });
+        document.getElementById("word").innerHTML = cleanlist.length;
+      });
     </script>
-</body>
+  </body>
 </html>
